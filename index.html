@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Print Support Hub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .background-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: rgba(37, 99, 235, 0.15);
+      border-radius: 50%;
+      filter: blur(120px);
+      top: -200px;
+      right: -200px;
+      z-index: 0;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 60px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: #3b82f6;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: #3b82f6;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #3b82f6;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 40px 60px 100px;
+    }
+
+    .section-title {
+      font-size: 42px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      color: #94a3b8;
+      margin-bottom: 50px;
+      font-size: 18px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      padding: 32px;
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(59,130,246,0.08);
+      border-radius: 50%;
+      top: -60px;
+      right: -60px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      border-color: rgba(59,130,246,0.4);
+    }
+
+    .card-icon {
+      font-size: 48px;
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .card a {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: #2563eb;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .card a:hover {
+      background: #3b82f6;
+    }
+
+    .compatibility {
+      margin-top: 100px;
+      background: rgba(30,41,59,0.65);
+      border-radius: 28px;
+      padding: 40px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .compatibility h2 {
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 14px 24px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    .badge.warning {
+      background: rgba(245,158,11,0.12);
+      border-color: rgba(245,158,11,0.3);
+      color: #fbbf24;
+    }
+
+    .footer {
+      padding: 40px;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 80px;
+    }
+
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 20px;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 40px 20px 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="background-glow"></div>
+
+<nav class="navbar">
+  <div class="logo">Print <span>Support Hub</span></div>
+
+  <div class="nav-links">
+    <a href="#instalacion">Instalación</a>
+    <a href="#imprimir">Imprimir</a>
+    <a href="#copiar">Copiar</a>
+    <a href="#escanear">Escanear</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Portal de <span>Impresión</span><br>y Autogestión</h1>
+
+    <p>
+      Consulta videos y guías rápidas para la instalación de impresoras y el uso de funciones de impresión, copiado y escaneo, todo desde un solo lugar de forma práctica y accesible.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#instalacion" class="btn-primary">Comenzar</a>
+      <a href="#compatibilidad" class="btn-secondary">Compatibilidad</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+
+  <h2 class="section-title">Accesos rápidos</h2>
+  <p class="section-subtitle">
+    Selecciona la sección que deseas consultar.
+  </p>
+
+  <div class="cards-grid">
+
+    <div class="card" id="instalacion">
+      <div class="card-icon">🖥️</div>
+      <h3>Instalación</h3>
+      <p>
+        Guías de instalación para Windows, macOS, iOS y iPadOS.
+      </p>
+      <a href="#">Ver tutoriales</a>
+    </div>
+
+    <div class="card" id="imprimir">
+      <div class="card-icon">🖨️</div>
+      <h3>Imprimir</h3>
+      <p>
+        Aprende a liberar impresiones y utilizar los servicios de impresión.
+      </p>
+      <a href="#">Abrir sección</a>
+    </div>
+
+    <div class="card" id="copiar">
+      <div class="card-icon">📄</div>
+      <h3>Copiar</h3>
+      <p>
+        Consulta tutoriales para realizar copias rápidas y configuraciones básicas.
+      </p>
+      <a href="#">Ver guías</a>
+    </div>
+
+    <div class="card" id="escanear">
+      <div class="card-icon">📠</div>
+      <h3>Escanear</h3>
+      <p>
+        Aprende a escanear documentos a correo electrónico o carpeta compartida.
+      </p>
+      <a href="#">Ir a escaneo</a>
+    </div>
+
+  </div>
+
+  <div class="compatibility" id="compatibilidad">
+    <h2>Compatibilidad</h2>
+
+    <div class="badges">
+      <div class="badge">🪟 Windows</div>
+      <div class="badge">🍎 macOS</div>
+      <div class="badge">📱 iOS</div>
+      <div class="badge">📲 iPadOS</div>
+      <div class="badge warning">⚠ Android próximamente</div>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  Print Support Hub • Portal de autogestión y servicios de impresión
+</footer>
+
+</body>
+</html>
