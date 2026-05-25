@@ -3,300 +3,451 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guía de Impresión</title>
+
+  <title>Guía de impresión</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+      scroll-behavior:smooth;
     }
 
-    body {
-      background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
+    body{
+      background:linear-gradient(135deg,#0f172a 0%, #111827 100%);
+      color:white;
+      min-height:100vh;
+      overflow-x:hidden;
     }
 
-    .background-glow {
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      background: rgba(37, 99, 235, 0.15);
-      border-radius: 50%;
-      filter: blur(120px);
-      top: -200px;
-      right: -200px;
-      z-index: 0;
+    .background-glow{
+      position:fixed;
+      width:700px;
+      height:700px;
+      background:rgba(37,99,235,0.15);
+      border-radius:50%;
+      filter:blur(140px);
+      top:-250px;
+      right:-250px;
+      z-index:0;
+      animation:floatGlow 8s ease-in-out infinite;
     }
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 60px;
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .logo span {
-      color: #3b82f6;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #cbd5e1;
-      transition: 0.3s;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    .hero {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 20px 80px;
-    }
-
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .hero h1 {
-      font-size: 72px;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      font-weight: 800;
-    }
-
-    .hero h1 span {
-      color: #3b82f6;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #cbd5e1;
-      line-height: 1.8;
-      margin-bottom: 40px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: #2563eb;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      box-shadow: 0 10px 30px rgba(37,99,235,0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      background: #3b82f6;
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.15);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .section {
-      position: relative;
-      z-index: 1;
-      padding: 40px 60px 100px;
-    }
-
-    .section-title {
-      font-size: 42px;
-      margin-bottom: 14px;
-      font-weight: 700;
-    }
-
-    .section-subtitle {
-      color: #94a3b8;
-      margin-bottom: 50px;
-      font-size: 18px;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-    }
-
-    .card {
-      background: rgba(30, 41, 59, 0.7);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(18px);
-      border-radius: 28px;
-      padding: 32px;
-      transition: 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      background: rgba(59,130,246,0.08);
-      border-radius: 50%;
-      top: -60px;
-      right: -60px;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-      border-color: rgba(59,130,246,0.4);
-    }
-
-    .card-icon {
-      font-size: 48px;
-      margin-bottom: 24px;
-    }
-
-    .card h3 {
-      font-size: 28px;
-      margin-bottom: 14px;
-    }
-
-    .card p {
-      color: #cbd5e1;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-
-    .card a {
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      background: #2563eb;
-      padding: 12px 22px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .card a:hover {
-      background: #3b82f6;
-    }
-
-    .compatibility {
-      margin-top: 100px;
-      background: rgba(30,41,59,0.65);
-      border-radius: 28px;
-      padding: 40px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .compatibility h2 {
-      margin-bottom: 30px;
-      font-size: 32px;
-    }
-
-    .badges {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      padding: 14px 24px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #e2e8f0;
-      font-weight: 600;
-    }
-
-    .badge.warning {
-      background: rgba(245,158,11,0.12);
-      border-color: rgba(245,158,11,0.3);
-      color: #fbbf24;
-    }
-
-    .footer {
-      padding: 40px;
-      text-align: center;
-      color: #94a3b8;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 80px;
-    }
-
-    @media (max-width: 900px) {
-      .navbar {
-        padding: 20px;
-        flex-direction: column;
-        gap: 18px;
+    @keyframes floatGlow{
+      0%{
+        transform:translateY(0px);
       }
-
-      .hero h1 {
-        font-size: 48px;
+      50%{
+        transform:translateY(30px);
       }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      .section {
-        padding: 40px 20px 80px;
+      100%{
+        transform:translateY(0px);
       }
     }
+
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:22px 60px;
+
+      background:rgba(15,23,42,0.72);
+      backdrop-filter:blur(20px);
+
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:800;
+    }
+
+    .logo span{
+      color:#3b82f6;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#cbd5e1;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:white;
+    }
+
+    .hero{
+      position:relative;
+      z-index:1;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:120px 20px 90px;
+    }
+
+    .hero-content{
+      max-width:950px;
+      animation:fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .hero-badge{
+      display:inline-block;
+
+      padding:10px 18px;
+
+      border-radius:999px;
+
+      background:rgba(59,130,246,0.12);
+
+      border:1px solid rgba(59,130,246,0.3);
+
+      color:#93c5fd;
+
+      font-size:14px;
+      font-weight:600;
+
+      margin-bottom:28px;
+    }
+
+    .hero h1{
+      font-size:76px;
+      line-height:1.05;
+      margin-bottom:24px;
+      font-weight:800;
+    }
+
+    .hero h1 span{
+      color:#3b82f6;
+    }
+
+    .hero p{
+      font-size:20px;
+      color:#cbd5e1;
+      line-height:1.9;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn-primary{
+      background:#2563eb;
+      color:white;
+
+      padding:16px 30px;
+
+      border-radius:16px;
+
+      text-decoration:none;
+      font-weight:600;
+
+      transition:0.3s;
+
+      box-shadow:0 15px 35px rgba(37,99,235,0.35);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px) scale(1.02);
+      background:#3b82f6;
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,0.15);
+
+      color:white;
+
+      padding:16px 30px;
+
+      border-radius:16px;
+
+      text-decoration:none;
+      font-weight:600;
+
+      transition:0.3s;
+
+      background:rgba(255,255,255,0.04);
+    }
+
+    .btn-secondary:hover{
+      transform:translateY(-4px);
+      background:rgba(255,255,255,0.08);
+    }
+
+    .section{
+      position:relative;
+      z-index:1;
+
+      padding:40px 60px 100px;
+    }
+
+    .section-title{
+      font-size:44px;
+      margin-bottom:14px;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .section-subtitle{
+      color:#94a3b8;
+      margin-bottom:55px;
+      font-size:18px;
+      text-align:center;
+    }
+
+    .cards-grid{
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+
+      gap:30px;
+    }
+
+    .card{
+      background:rgba(30,41,59,0.7);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      backdrop-filter:blur(18px);
+
+      border-radius:30px;
+
+      padding:34px;
+
+      transition:0.35s ease;
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:'';
+
+      position:absolute;
+
+      width:220px;
+      height:220px;
+
+      background:rgba(59,130,246,0.08);
+
+      border-radius:50%;
+
+      top:-70px;
+      right:-70px;
+    }
+
+    .card:hover{
+      transform:translateY(-12px) scale(1.02);
+
+      box-shadow:0 25px 45px rgba(0,0,0,0.35);
+
+      border-color:rgba(59,130,246,0.4);
+    }
+
+    .card-badge{
+      position:absolute;
+      top:20px;
+      right:20px;
+
+      background:rgba(59,130,246,0.15);
+
+      border:1px solid rgba(59,130,246,0.3);
+
+      color:#93c5fd;
+
+      padding:8px 14px;
+
+      border-radius:999px;
+
+      font-size:12px;
+      font-weight:600;
+    }
+
+    .card-icon{
+      font-size:64px;
+      margin-bottom:24px;
+    }
+
+    .card h3{
+      font-size:30px;
+      margin-bottom:14px;
+    }
+
+    .card p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:28px;
+    }
+
+    .mini-links{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .mini-link{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.06);
+
+      padding:14px 18px;
+
+      border-radius:16px;
+
+      text-decoration:none;
+
+      color:white;
+
+      transition:0.3s;
+    }
+
+    .mini-link:hover{
+      transform:translateX(6px);
+      background:rgba(59,130,246,0.12);
+      border-color:rgba(59,130,246,0.3);
+    }
+
+    .mini-link span{
+      color:#93c5fd;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .compatibility{
+      margin-top:100px;
+
+      background:rgba(30,41,59,0.65);
+
+      border-radius:30px;
+
+      padding:45px;
+
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .compatibility h2{
+      margin-bottom:30px;
+      font-size:34px;
+      text-align:center;
+    }
+
+    .badges{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .badge{
+      padding:15px 24px;
+
+      border-radius:16px;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      color:#e2e8f0;
+
+      font-weight:600;
+
+      transition:0.3s;
+    }
+
+    .badge:hover{
+      transform:translateY(-4px);
+    }
+
+    .badge.warning{
+      background:rgba(245,158,11,0.12);
+      border-color:rgba(245,158,11,0.3);
+      color:#fbbf24;
+    }
+
+    .footer{
+      padding:40px;
+      text-align:center;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top:80px;
+    }
+
+    @media(max-width:900px){
+
+      .navbar{
+        padding:20px;
+        flex-direction:column;
+        gap:18px;
+      }
+
+      .hero h1{
+        font-size:52px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .section{
+        padding:40px 20px 80px;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
 
 <div class="background-glow"></div>
 
 <nav class="navbar">
-  <div class="logo">Print <span>Support Hub</span></div>
+
+  <div class="logo">
+    Guía de <span>impresión</span>
+  </div>
 
   <div class="nav-links">
     <a href="#instalacion">Instalación</a>
@@ -304,86 +455,231 @@
     <a href="#copiar">Copiar</a>
     <a href="#escanear">Escanear</a>
   </div>
+
 </nav>
 
 <section class="hero">
+
   <div class="hero-content">
-    <h1>Portal de <span>Impresión</span><br>y Autogestión</h1>
+
+    <div class="hero-badge">
+      Portal digital de impresión
+    </div>
+
+    <h1>
+      Guía de <span>impresión</span><br>
+      y autogestión
+    </h1>
 
     <p>
-      Consulta videos y guías rápidas para la instalación de impresoras y el uso de funciones de impresión, copiado y escaneo, todo desde un solo lugar de forma práctica y accesible.
+      Consulta tutoriales y videos interactivos para instalar impresoras,
+      imprimir documentos, escanear archivos y utilizar los servicios de impresión
+      desde cualquier dispositivo.
     </p>
 
     <div class="hero-buttons">
-      <a href="#instalacion" class="btn-primary">Comenzar</a>
-      <a href="#compatibilidad" class="btn-secondary">Compatibilidad</a>
+
+      <a href="#instalacion" class="btn-primary">
+        Explorar tutoriales
+      </a>
+
+      <a href="#compatibilidad" class="btn-secondary">
+        Compatibilidad
+      </a>
+
     </div>
+
   </div>
+
 </section>
 
 <section class="section">
 
-  <h2 class="section-title">Accesos rápidos</h2>
+  <h2 class="section-title">
+    Accesos rápidos
+  </h2>
+
   <p class="section-subtitle">
-    Selecciona la sección que deseas consultar.
+    Selecciona la categoría que deseas consultar.
   </p>
 
   <div class="cards-grid">
 
     <div class="card" id="instalacion">
-      <div class="card-icon">🖥️</div>
+
+      <div class="card-badge">
+        Más consultado
+      </div>
+
+      <div class="card-icon">
+        🖥️
+      </div>
+
       <h3>Instalación</h3>
+
       <p>
-        Guías de instalación para Windows, macOS, iOS y iPadOS.
+        Tutoriales de instalación y configuración de impresoras para diferentes dispositivos.
       </p>
-      <a href="#">Ver tutoriales</a>
+
+      <div class="mini-links">
+
+        <a class="mini-link" href="#">
+          🪟 Windows
+          <span>Próximamente</span>
+        </a>
+
+        <a class="mini-link" href="#">
+          🍎 macOS
+          <span>Próximamente</span>
+        </a>
+
+        <a
+          class="mini-link"
+          href="https://tecmx-my.sharepoint.com/personal/juan_mejia_tec_mx/_layouts/15/stream.aspx?id=%2Fpersonal%2Fjuan_mejia_tec_mx%2FDocuments%2FVideos+Impresoras%2FiOS+and+ipadOS.MP4&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.11bceb03-058a-468a-a47a-9522300493ea"
+          target="_blank"
+        >
+          📱 iOS & iPadOS
+          <span>Ver video →</span>
+        </a>
+
+      </div>
+
     </div>
 
     <div class="card" id="imprimir">
-      <div class="card-icon">🖨️</div>
+
+      <div class="card-badge">
+        Tutoriales
+      </div>
+
+      <div class="card-icon">
+        🖨️
+      </div>
+
       <h3>Imprimir</h3>
+
       <p>
-        Aprende a liberar impresiones y utilizar los servicios de impresión.
+        Aprende a liberar impresiones y utilizar correctamente el sistema de impresión.
       </p>
-      <a href="#">Abrir sección</a>
+
+      <div class="mini-links">
+
+        <a class="mini-link" href="#">
+          📄 Liberar impresión
+          <span>Próximamente</span>
+        </a>
+
+        <a class="mini-link" href="#">
+          🧾 Configuración
+          <span>Próximamente</span>
+        </a>
+
+      </div>
+
     </div>
 
     <div class="card" id="copiar">
-      <div class="card-icon">📄</div>
+
+      <div class="card-badge">
+        Básico
+      </div>
+
+      <div class="card-icon">
+        📄
+      </div>
+
       <h3>Copiar</h3>
+
       <p>
-        Consulta tutoriales para realizar copias rápidas y configuraciones básicas.
+        Consulta tutoriales rápidos para realizar copias y configuraciones básicas.
       </p>
-      <a href="#">Ver guías</a>
+
+      <div class="mini-links">
+
+        <a class="mini-link" href="#">
+          📑 Copia rápida
+          <span>Próximamente</span>
+        </a>
+
+        <a class="mini-link" href="#">
+          ⚙ Configuración
+          <span>Próximamente</span>
+        </a>
+
+      </div>
+
     </div>
 
     <div class="card" id="escanear">
-      <div class="card-icon">📠</div>
+
+      <div class="card-badge">
+        Popular
+      </div>
+
+      <div class="card-icon">
+        📠
+      </div>
+
       <h3>Escanear</h3>
+
       <p>
-        Aprende a escanear documentos a correo electrónico o carpeta compartida.
+        Aprende a escanear documentos hacia correo electrónico o carpetas compartidas.
       </p>
-      <a href="#">Ir a escaneo</a>
+
+      <div class="mini-links">
+
+        <a class="mini-link" href="#">
+          ✉ Escaneo a correo
+          <span>Próximamente</span>
+        </a>
+
+        <a class="mini-link" href="#">
+          📁 Carpeta compartida
+          <span>Próximamente</span>
+        </a>
+
+      </div>
+
     </div>
 
   </div>
 
   <div class="compatibility" id="compatibilidad">
-    <h2>Compatibilidad</h2>
+
+    <h2>
+      Compatibilidad
+    </h2>
 
     <div class="badges">
-      <div class="badge">🪟 Windows</div>
-      <div class="badge">🍎 macOS</div>
-      <div class="badge">📱 iOS</div>
-      <div class="badge">📲 iPadOS</div>
-      <div class="badge warning">⚠ Android próximamente</div>
+
+      <div class="badge">
+        🪟 Windows
+      </div>
+
+      <div class="badge">
+        🍎 macOS
+      </div>
+
+      <div class="badge">
+        📱 iOS
+      </div>
+
+      <div class="badge">
+        📲 iPadOS
+      </div>
+
+      <div class="badge warning">
+        ⚠ Android próximamente
+      </div>
+
     </div>
+
   </div>
 
 </section>
 
 <footer class="footer">
-  Guía de Impresión • Portal de autogestión y servicios de impresión
+  Guía de impresión • Servicios y autogestión de impresión
 </footer>
 
 </body>
