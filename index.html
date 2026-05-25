@@ -235,7 +235,7 @@
     .cards-grid{
       display:grid;
 
-      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
       gap:30px;
     }
@@ -353,6 +353,34 @@
       color:#93c5fd;
       font-size:14px;
       font-weight:600;
+    }
+
+    .video-card{
+      margin-top:22px;
+
+      background:rgba(255,255,255,0.04);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      border-radius:22px;
+
+      overflow:hidden;
+    }
+
+    .video-header{
+      padding:18px 20px;
+
+      font-weight:600;
+
+      border-bottom:1px solid rgba(255,255,255,0.08);
+
+      background:rgba(255,255,255,0.03);
+    }
+
+    .video-card iframe{
+      width:100%;
+      height:260px;
+      border:none;
     }
 
     .compatibility{
@@ -505,6 +533,8 @@
 
   <div class="cards-grid">
 
+    <!-- INSTALACIÓN -->
+
     <div class="card" id="instalacion">
 
       <div class="card-badge">
@@ -533,18 +563,26 @@
           <span>Próximamente</span>
         </a>
 
-        <a
-          class="mini-link"
-          href="https://tecmx-my.sharepoint.com/personal/juan_mejia_tec_mx/_layouts/15/stream.aspx?id=%2Fpersonal%2Fjuan_mejia_tec_mx%2FDocuments%2FVideos+Impresoras%2FiOS+and+ipadOS.MP4&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.11bceb03-058a-468a-a47a-9522300493ea"
-          target="_blank"
-        >
-          📱 iOS & iPadOS
-          <span>Ver video →</span>
-        </a>
+      </div>
+
+      <!-- VIDEO EMBEBIDO -->
+
+      <div class="video-card">
+
+        <div class="video-header">
+          📱 Tutorial iOS & iPadOS
+        </div>
+
+        <iframe
+          src="https://tecmx-my.sharepoint.com/personal/juan_mejia_tec_mx/_layouts/15/stream.aspx?id=%2Fpersonal%2Fjuan_mejia_tec_mx%2FDocuments%2FVideos+Impresoras%2FiOS+and+ipadOS.MP4&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.11bceb03-058a-468a-a47a-9522300493ea"
+          allowfullscreen>
+        </iframe>
 
       </div>
 
     </div>
+
+    <!-- IMPRIMIR -->
 
     <div class="card" id="imprimir">
 
@@ -578,6 +616,8 @@
 
     </div>
 
+    <!-- COPIAR -->
+
     <div class="card" id="copiar">
 
       <div class="card-badge">
@@ -610,6 +650,8 @@
 
     </div>
 
+    <!-- ESCANEAR -->
+
     <div class="card" id="escanear">
 
       <div class="card-badge">
@@ -623,7 +665,7 @@
       <h3>Escanear</h3>
 
       <p>
-        Aprende a escanear documentos hacia correo electrónico o carpetas compartidas.
+        Aprende a escanear documentos hacia correo electrónico.
       </p>
 
       <div class="mini-links">
